@@ -46,31 +46,34 @@
 
         .card-left, .card-right {
             flex: 1;
-            padding: 40px;
+            padding: 30px; 
             color: #2c1e12;
-            line-height: 1.5;
+            line-height: 1.25; 
         }
 
         h1 {
             font-size: 1.2rem;
-            margin-bottom: 25px;
+            margin-bottom: 15px; 
             font-weight: bold;
             border-bottom: 1px dashed #8b7458;
             padding-bottom: 10px;
         }
 
-        /* AJUSTE DE ESPAÇAMENTO AQUI */
+        /* --- AQUI ESTÁ A CORREÇÃO DOS ESPAÇOS --- */
         p {
-            margin-bottom: 5px; /* Reduzi de 15px para 5px */
+            margin-bottom: 4px;
             font-size: 0.95rem;
-            text-align: justify;
+            
+            /* Mudei de 'justify' para 'left'. 
+               Isso remove os buracos entre as palavras. */
+            text-align: left; 
         }
 
         /* --- FOTOS (POLAROIDS) --- */
         .polaroid-container {
             position: relative;
             height: 480px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .polaroid {
@@ -118,7 +121,7 @@
 
         /* Assinatura */
         .signature-block {
-            margin-top: 40px;
+            margin-top: 20px;
             text-align: right;
             position: relative;
         }
@@ -142,15 +145,15 @@
             body { padding: 10px; align-items: flex-start; height: auto; }
             .card { flex-direction: column; overflow: visible; max-width: 100%; }
             .card::after { display: none; }
-            .card-left, .card-right { padding: 25px 20px; }
+            .card-left, .card-right { padding: 20px 15px; } 
 
             .polaroid-container {
                 height: auto;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 25px;
-                margin: 20px 0;
+                gap: 15px;
+                margin: 15px 0;
             }
 
             .polaroid {
