@@ -166,7 +166,6 @@
             height: 180px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             z-index: 1;
-            /* Garante que a animação de flutuar use aceleração de hardware */
             will-change: transform;
         }
 
@@ -278,26 +277,22 @@
                 height: auto;
                 max-width: 250px;
                 animation: none !important; 
-                /* Reativei os eventos de toque */
                 pointer-events: auto;
                 transition: transform 0.3s ease;
             }
 
-            /* Definindo a posição inicial e o efeito de toque para CADA foto no celular */
-            
-            /* Foto 1 (p1) */
+            /* EFEITO DE TOQUE NO CELULAR (ZOOM) */
+            /* Foto 1 */
             .polaroid:nth-child(2) { transform: rotate(-2deg) !important; }
             .polaroid:nth-child(2):active, .polaroid:nth-child(2):hover { 
                 transform: scale(1.08) rotate(-2deg) !important; 
             }
-
-            /* Foto 2 (p2) */
+            /* Foto 2 */
             .polaroid:nth-child(3) { transform: rotate(2deg) !important; }
             .polaroid:nth-child(3):active, .polaroid:nth-child(3):hover { 
                 transform: scale(1.08) rotate(2deg) !important; 
             }
-
-            /* Foto 3 (p3) */
+            /* Foto 3 */
             .polaroid:nth-child(4) { transform: rotate(-1deg) !important; }
             .polaroid:nth-child(4):active, .polaroid:nth-child(4):hover { 
                 transform: scale(1.08) rotate(-1deg) !important; 
@@ -372,7 +367,7 @@
 
             <p>Eu torço, de verdade, para que você encontre a tranquilidade que merece. E, lá no fundo, torço também para que essas respostas nos reencontrem.</p>
 
-            <p>Obrigado por ter feito o meu 2025 valer a pena.</p>
+            <p>Obrigado por nossa história. Para mim, ela é eterna, pois você sempre terá um lugar guardado no meu coração. Você sempre será minha rainha.</p>
 
             <p>Se cuida, Be. Eu continuo aqui por você.</p>
 
