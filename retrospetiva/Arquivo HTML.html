@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ray</title>
+    <style>
+        /* --- RESET E BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #5c4033;
+            background-image: linear-gradient(to bottom right, #6d4f41, #4a3328);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+        }
+
+        /* --- O CARTÃO --- */
+        .card {
+            background-color: #e8dec6;
+            background-image: repeating-linear-gradient(to right, #e8dec6, #e8dec6 2px, #e4d8bd 2px, #e4d8bd 4px);
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border-radius: 6px;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Linha de dobra central (apenas Desktop) */
+        .card::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(139, 116, 88, 0.3);
+            transform: translateX(-50%);
+        }
+
+        .card-left, .card-right {
+            flex: 1;
+            padding: 40px;
+            color: #2c1e12;
+            line-height: 1.5;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            font-weight: bold;
+            border-bottom: 1px dashed #8b7458;
+            padding-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        /* --- FOTOS (POLAROIDS) --- */
+        .polaroid-container {
+            position: relative;
+            height: 480px;
+            margin-bottom: 20px;
+        }
+
+        .polaroid {
+            background-color: #fff;
+            padding: 10px 10px 35px 10px;
+            box-shadow: 3px 5px 10px rgba(0,0,0,0.3);
+            position: absolute;
+            width: 150px;
+            height: 180px;
+            transition: transform 0.3s ease;
+            z-index: 1;
+        }
+
+        .polaroid:hover {
+            transform: scale(1.05) !important;
+            z-index: 10;
+        }
+
+        .photo-img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            display: block;
+            background-color: #1a1a1a;
+            border: 1px solid #ddd;
+        }
+
+        /* Posições DESKTOP */
+        .p1 { top: 0; left: 20px; transform: rotate(-4deg); }
+        .p2 { top: 150px; left: 80px; transform: rotate(5deg); z-index: 2; }
+        .p3 { top: 300px; left: 30px; transform: rotate(-3deg); }
+
+        /* Clipes */
+        .clip {
+            position: absolute;
+            width: 12px; height: 35px;
+            background: #cba378;
+            border-left: 2px solid #a88258; border-right: 2px solid #a88258;
+            z-index: 5;
+            box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+        }
+        .c1 { top: -10px; left: 140px; transform: rotate(-4deg); }
+        .c2 { top: 140px; left: 200px; transform: rotate(5deg); }
+        .c3 { top: 290px; left: 150px; transform: rotate(-3deg); }
+
+        /* Assinatura */
+        .signature-block {
+            margin-top: 40px;
+            text-align: right;
+            position: relative;
+        }
+        .heart {
+            font-size: 2.5rem;
+            color: #d32f2f;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- MODO CELULAR (RESPONSIVO) --- */
+        @media (max-width: 768px) {
+            body { padding: 10px; align-items: flex-start; height: auto; }
+            .card { flex-direction: column; overflow: visible; max-width: 100%; }
+            .card::after { display: none; }
+            .card-left, .card-right { padding: 25px 20px; }
+
+            .polaroid-container {
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+                margin: 20px 0;
+            }
+
+            .polaroid {
+                position: relative;
+                top: auto !important;
+                left: auto !important;
+                width: 70%;
+                height: auto;
+                max-width: 250px;
+            }
+
+            .photo-img { height: 200px; }
+
+            .polaroid:nth-child(2) { transform: rotate(-2deg); }
+            .polaroid:nth-child(3) { transform: rotate(2deg); }
+            .polaroid:nth-child(4) { transform: rotate(-1deg); }
+
+            .clip { display: none; }
+            h1 { font-size: 1.1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="card-left">
+            <h1>Para Ray, na virada do nosso ano.</h1>
+            <p>Ray,</p>
+            <p>Enquanto 2025 chega ao fim, o nosso capítulo juntos também está se fechando de uma forma que eu não esperava. É difícil escrever uma mensagem de “Feliz Ano Novo” quando meu coração ainda está tentando entender a despedida, mas eu não poderia deixar esse ciclo terminar sem te agradecer.</p>
+
+            <p>Eu escolho levar para o novo ano apenas as lembranças boas do que fomos, especialmente deste nosso último mês intenso.</p>
+
+            <p>Levo a gratidão pela parceria que tivemos até o fim. Pelas risadas das coisas bobas, pelo apoio mútuo — fosse na burocracia da faculdade ou em qualquer outro desafio do dia a dia que enfrentamos juntos.</p>
+
+            <p>Levo a doçura dos sonhos que compartilhamos e a felicidade genuína que você me trouxe desde o dia em que te conheci.</p>
+        </div>
+
+        <div class="card-right">
+
+            <div class="polaroid-container">
+                <div class="clip c1"></div>
+                <div class="clip c2"></div>
+                <div class="clip c3"></div>
+
+                <div class="polaroid p1">
+                    <img src="/home/rafa/Área de trabalho/retrospetiva/imagem/foto1.jpg" class="photo-img" alt="Foto">
+                </div>
+                <div class="polaroid p2">
+                    <img src="/home/rafa/Área de trabalho/retrospetiva/imagem/foto2.jpg" class="photo-img" alt="Foto">
+                </div>
+                <div class="polaroid p3">
+                    <img src="/home/rafa/Área de trabalho/retrospetiva/imagem/foto3.jpg" class="photo-img" alt="Foto">
+                </div>
+            </div>
+
+            <p>Tudo isso foi real e muito importante para mim. Você me disse que precisa desse tempo para você e para sua família, e que as coisas estão confusas aí dentro.</p>
+
+            <p>Por mais que doa aceitar a distância, eu respeito sua necessidade de encontrar seu próprio caminho agora.</p>
+
+            <p>Por isso, meu desejo para você em 2026 é clareza e paz. Que este novo ano te traga as respostas que você procura. Que você consiga resolver essas questões internas e familiares que tanto te afligem agora.</p>
+
+            <p>Eu torço, de verdade, para que você encontre a felicidade e a tranquilidade que merece, mesmo que o seu caminho agora não seja ao meu lado.</p>
+
+            <p>Obrigado por ter feito parte do meu 2025.</p>
+
+            <p>Se cuida, Be. Sempre vou te amar.</p>
+
+            <p>Um 2026 de luz para você.</p>
+
+            <div class="signature-block">
+                <p>Com carinho,<br><strong>Rafael.</strong></p>
+                <div class="heart">❤️</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
