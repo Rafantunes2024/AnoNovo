@@ -21,9 +21,7 @@
 
         /* --- O CARTÃO --- */
         .card {
-            /* Apenas a cor sólida agora, sem os riscos */
             background-color: #e8dec6; 
-            
             width: 100%;
             max-width: 900px;
             box-shadow: 0 15px 30px rgba(0,0,0,0.4);
@@ -64,6 +62,34 @@
             margin-bottom: 4px;
             font-size: 0.95rem;
             text-align: left; 
+        }
+
+        /* --- BOTÃO DE MÚSICA --- */
+        .music-control {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .play-btn {
+            background: transparent;
+            border: 2px solid #8b7458;
+            color: #5c4033;
+            padding: 8px 16px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .play-btn:hover {
+            background: #8b7458;
+            color: #e8dec6;
         }
 
         /* --- FOTOS (POLAROIDS) --- */
@@ -178,6 +204,17 @@
     <div class="card">
         <div class="card-left">
             <h1>Para Ray, na virada do nosso ano.</h1>
+
+            <div class="music-control">
+                <button id="playBtn" class="play-btn">
+                    <span>▶</span> Tocar nossa música
+                </button>
+                <audio id="audioPlayer" loop>
+                    <source src="musica.mp3" type="audio/mpeg">
+                    Seu navegador não suporta áudio.
+                </audio>
+            </div>
+
             <p>Ray,</p>
             <p>Enquanto 2025 chega ao fim, o nosso futuro ficou um pouco incerto de uma forma que eu não esperava. É difícil escrever uma mensagem de "Feliz Ano Novo" com o coração apertado, tentando entender esse momento, mas eu não poderia deixar o ano virar sem te agradecer.</p>
 
@@ -216,7 +253,7 @@
 
             <p>Obrigado por ter feito o meu 2025 valer a pena.</p>
 
-            <p>Se cuida, Be. Eu continuo aqui e espero por você.</p>
+            <p>Se cuida, Be. Eu continuo aqui por você.</p>
 
             <p>Um 2026 de luz.</p>
 
@@ -226,6 +263,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const playBtn = document.getElementById('playBtn');
+        const audio = document.getElementById('audioPlayer');
+        let isPlaying = false;
+
+        playBtn.addEventListener('click', () => {
+            if (!isPlaying) {
+                audio.play();
+                playBtn.innerHTML = '<span>⏸</span> Pausar música';
+                isPlaying = true;
+            } else {
+                audio.pause();
+                playBtn.innerHTML = '<span>▶</span> Tocar nossa música';
+                isPlaying = false;
+            }
+        });
+    </script>
 
 </body>
 </html>
