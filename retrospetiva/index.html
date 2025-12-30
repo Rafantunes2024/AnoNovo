@@ -22,7 +22,6 @@
             animation: fadeIn 2s ease-in-out;
         }
 
-        /* Keyframes para aparecer devagar */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -183,9 +182,7 @@
             border: 1px solid #ddd;
         }
 
-        /* Posições e ANIMAÇÕES DE FLUTUAÇÃO */
-        /* Cada foto flutua em um ritmo diferente para parecer natural */
-        
+        /* ANIMAÇÕES DE FLUTUAÇÃO */
         .p1 { 
             top: 0; left: 20px; 
             animation: float1 4s ease-in-out infinite; 
@@ -198,7 +195,7 @@
         .p2 { 
             top: 150px; left: 80px; z-index: 2; 
             animation: float2 5s ease-in-out infinite; 
-            animation-delay: 0.5s; /* Começa depois */
+            animation-delay: 0.5s;
         }
         @keyframes float2 {
             0%, 100% { transform: rotate(5deg) translateY(0); }
@@ -261,7 +258,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 25px; /* Mais espaço no celular para a flutuação não encavalar */
+                gap: 25px;
                 margin: 25px 0;
             }
 
@@ -272,12 +269,10 @@
                 width: 70%;
                 height: auto;
                 max-width: 250px;
-                /* Removemos a flutuação no celular para não atrapalhar o scroll */
                 animation: none; 
                 transform: none !important;
             }
             
-            /* Rotação estática no celular */
             .polaroid:nth-child(2) { transform: rotate(-2deg) !important; }
             .polaroid:nth-child(3) { transform: rotate(2deg) !important; }
             .polaroid:nth-child(4) { transform: rotate(-1deg) !important; }
@@ -320,7 +315,7 @@
 
             <p>Eu escolho levar para 2026 todas as lembranças boas do que somos, especialmente a intensidade desse último mês.</p>
 
-            <p>Levo a gratidão pela nossa parceria. Pelas risadas das coisas bobas, pelo apoio mútuo — fosse na burocracia da faculdade ou em qualquer outro desafio do dia a dia que enfrentamos juntos.</p>
+            <p>Levo a gratidão pela nossa parceria. Pelas risadas das coisas bobas, pelo apoio mútuo — fosse na burocracia da faculdade, nos dias em que o desânimo batia e você me devolvia a alegria, ou quando tudo parecia perdido e você me ajudava a enxergar o caminho.</p>
 
             <p>Levo a doçura dos sonhos que compartilhamos e a felicidade genuína que você me trouxe desde o dia em que te conheci.</p>
         </div>
