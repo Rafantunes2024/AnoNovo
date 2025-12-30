@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Ray</title>
+    <title>Para Ray ❤️</title>
     <style>
         /* --- RESET E BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,6 +17,15 @@
             align-items: center;
             font-family: 'Courier New', Courier, monospace;
             padding: 20px;
+            
+            /* ANIMAÇÃO DE ENTRADA SUAVE */
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Keyframes para aparecer devagar */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* --- O CARTÃO --- */
@@ -64,7 +73,7 @@
             text-align: left; 
         }
 
-        /* --- PLAYER DE MÚSICA COMPLETO --- */
+        /* --- PLAYER DE MÚSICA --- */
         .music-control {
             margin-bottom: 25px;
             background: rgba(139, 116, 88, 0.1);
@@ -74,7 +83,6 @@
             width: 100%;
         }
 
-        /* Título "Nossa música" */
         .music-label {
             font-size: 0.95rem;
             font-weight: bold;
@@ -175,10 +183,37 @@
             border: 1px solid #ddd;
         }
 
-        /* Posições DESKTOP */
-        .p1 { top: 0; left: 20px; transform: rotate(-4deg); }
-        .p2 { top: 150px; left: 80px; transform: rotate(5deg); z-index: 2; }
-        .p3 { top: 300px; left: 30px; transform: rotate(-3deg); }
+        /* Posições e ANIMAÇÕES DE FLUTUAÇÃO */
+        /* Cada foto flutua em um ritmo diferente para parecer natural */
+        
+        .p1 { 
+            top: 0; left: 20px; 
+            animation: float1 4s ease-in-out infinite; 
+        }
+        @keyframes float1 {
+            0%, 100% { transform: rotate(-4deg) translateY(0); }
+            50% { transform: rotate(-4deg) translateY(-8px); }
+        }
+
+        .p2 { 
+            top: 150px; left: 80px; z-index: 2; 
+            animation: float2 5s ease-in-out infinite; 
+            animation-delay: 0.5s; /* Começa depois */
+        }
+        @keyframes float2 {
+            0%, 100% { transform: rotate(5deg) translateY(0); }
+            50% { transform: rotate(5deg) translateY(-10px); }
+        }
+
+        .p3 { 
+            top: 300px; left: 30px; 
+            animation: float3 4.5s ease-in-out infinite; 
+            animation-delay: 1s;
+        }
+        @keyframes float3 {
+            0%, 100% { transform: rotate(-3deg) translateY(0); }
+            50% { transform: rotate(-3deg) translateY(-6px); }
+        }
 
         /* Clipes */
         .clip {
@@ -226,8 +261,8 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 15px;
-                margin: 15px 0;
+                gap: 25px; /* Mais espaço no celular para a flutuação não encavalar */
+                margin: 25px 0;
             }
 
             .polaroid {
@@ -237,14 +272,17 @@
                 width: 70%;
                 height: auto;
                 max-width: 250px;
+                /* Removemos a flutuação no celular para não atrapalhar o scroll */
+                animation: none; 
+                transform: none !important;
             }
+            
+            /* Rotação estática no celular */
+            .polaroid:nth-child(2) { transform: rotate(-2deg) !important; }
+            .polaroid:nth-child(3) { transform: rotate(2deg) !important; }
+            .polaroid:nth-child(4) { transform: rotate(-1deg) !important; }
 
             .photo-img { height: 200px; }
-
-            .polaroid:nth-child(2) { transform: rotate(-2deg); }
-            .polaroid:nth-child(3) { transform: rotate(2deg); }
-            .polaroid:nth-child(4) { transform: rotate(-1deg); }
-
             .clip { display: none; }
             h1 { font-size: 1.1rem; text-align: center; }
         }
